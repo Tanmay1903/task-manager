@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 from . import models, schemas
 
-def get_task(db: Session, task_id: int):
+def get_task_by_id(db: Session, task_id: int):
     return db.query(models.Task).filter(models.Task.id == task_id).first()
 
 def get_tasks(db: Session, skip: int = 0, limit: int = 10):
