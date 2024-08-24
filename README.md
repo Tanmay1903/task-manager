@@ -37,3 +37,22 @@ These variables are set directly in the `docker-compose.yml` file.
 ```bash
 git clone https://github.com/Tanmay1903/task-manager.git
 cd task-manager
+```
+
+### 2. Set Up Environment Variables
+
+```
+Copy the provided .env file in the root folder (task-manager).
+```
+
+### 3. Build and Run the Containers
+
+```bash
+docker-compose up --build
+```
+
+### 4. Access the Application
+
+```bash
+http://127.0.0.1:8081/docs#/
+```
