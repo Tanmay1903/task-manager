@@ -1,0 +1,39 @@
+# FastAPI Task Manager with Celery, PostgreSQL, and Redis
+
+This is a FastAPI-based task management application that includes asynchronous task handling using Celery, PostgreSQL for data storage, and Redis as the message broker. The application is containerized using Docker to ensure consistency across different environments.
+
+## Features
+
+- RESTful API (CRUD Operations) for managing tasks
+- Asynchronous background tasks with Celery
+- Email notifications via SendGrid
+- Containerized environment with Docker
+
+## Prerequisites
+
+Before you begin, ensure you have the following installed on your machine:
+
+- [Docker](https://docs.docker.com/get-docker/)
+- [Docker Compose](https://docs.docker.com/compose/install/)
+
+## Environment Variables
+
+The application uses the following environment variables:
+
+- **DATABASE_URL**: The connection string for the cloud PostgreSQL database.
+- **CELERY_BROKER_URL**: The URL for your Redis instance (default: `redis://localhost:6379/0`).
+- **CELERY_RESULT_BACKEND**: The backend URL for Celery results (default: `redis://localhost:6379/0`).
+- **SENDGRID_API_KEY**: The SendGrid API key for sending emails.
+- **SENDGRID_TEMPLATE_ID**: The ID of the SendGrid email template.
+- **SENDGRID_FROM_EMAIL**: The email address from which emails will be sent.
+- **SENDGRID_TO_EMAIL**: The recipient email address.
+
+These variables are set directly in the `docker-compose.yml` file.
+
+## Getting Started
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/yourusername/your-repository.git
+cd your-repository
