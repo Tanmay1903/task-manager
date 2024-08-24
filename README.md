@@ -54,3 +54,9 @@ docker-compose up --build
 ```bash
 http://127.0.0.1:8081/docs#/
 ```
+
+### 5. Stopping the Containers
+
+```bash
+docker-compose down
+```
