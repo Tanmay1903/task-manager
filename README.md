@@ -35,5 +35,5 @@ These variables are set directly in the `docker-compose.yml` file.
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/your-repository.git
-cd your-repository
+git clone https://github.com/Tanmay1903/task-manager.git
+cd task-manager
