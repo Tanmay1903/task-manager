@@ -41,9 +41,7 @@ cd task-manager
 
 ### 2. Set Up Environment Variables
 
-```
 Copy the provided .env file in the root folder (task-manager).
-```
 
 ### 3. Build and Run the Containers
 
