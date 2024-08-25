@@ -41,7 +41,7 @@ cd task-manager
 
 ### 2. Set Up Environment Variables
 
-Copy the provided .env file in the root folder (task-manager). Please replace the value in `SENDGRID_TO_EMAIL` key to `your_own_email_address` in the `.env` file in order to test the email notification.
+Copy the provided `.env` file in the root folder (task-manager). Please replace the value in `SENDGRID_TO_EMAIL` key to `your_own_email_address` in the `.env` file, in order to test the email notification.
 
 ### 3. Build and Run the Containers
 
