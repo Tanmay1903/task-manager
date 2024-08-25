@@ -21,7 +21,7 @@ Before you begin, ensure you have the following installed on your machine:
 The application uses the following environment variables:
 
 - **DATABASE_URL**: The connection string for the cloud PostgreSQL database.
-- **CELERY_BROKER_URL**: The URL for your Redis instance (default: `redis://localhost:6379/0`).
+- **CELERY_BROKER_URL**: The URL for the Redis instance (default: `redis://localhost:6379/0`).
 - **CELERY_RESULT_BACKEND**: The backend URL for Celery results (default: `redis://localhost:6379/0`).
 - **SENDGRID_API_KEY**: The SendGrid API key for sending emails.
 - **SENDGRID_TEMPLATE_ID**: The ID of the SendGrid email template.
@@ -60,3 +60,11 @@ http://127.0.0.1:8081/docs#/
 ```bash
 docker-compose down
 ```
+
+## Testing and Functionality
+
+### 1. Testing the Code
+To ensure the quality and reliability of the application, I have written and run tests using a testing framework like pytest.
+
+#### Setting Up Pytest
+- Install pytest: Ensure pytest is installed in your environment.
