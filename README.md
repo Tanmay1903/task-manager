@@ -160,6 +160,20 @@ The application uses Celery for handling background tasks, such as sending email
 
 #### How It Works:
 1. Task Creation and Notification:
-  - When a new task is created via the POST /tasks/ endpoint, an asynchronous Celery task (send_email_task) is triggered to send an email notification.
+   - When a new task is created via the `POST /tasks/` endpoint, an asynchronous Celery task (`send_email_task`) is triggered to send an email notification.
 2. Celery Task Implementation:
-  - The send_email_task function is defined in app.email and is decorated with @celery_app.task, making it a Celery task. This task is responsible for sending an email using the SendGrid API.
+   - The `send_email_task` function is defined in `app.celery_worker` and is decorated with `@celery_app.task`, making it a Celery task. This task is responsible for sending an email using the SendGrid API.
+3. Email Notification:
+   - When the task is created, the `send_email_task` function is called asynchronously, ensuring that the API request is not blocked by the time-consuming email-sending operation. This enhances the user experience by providing faster responses.
+4. Running the Celery Worker:
+   - The Celery worker is run as a separate service in Docker. It listens for tasks and executes them in the background.
+5. Verifying Email Delivery:
+   - To test the email notification feature, create a task via the `POST /tasks/` endpoint and check the inbox of the `SENDGRID_TO_EMAIL` address. You should receive an email notification about the new task.
+     `Note: Sometimes the notification Email goes to Spam folder. Please check the spam folder.`
+
+### 4. Optimizations Implemented
+- Asynchronous Task Execution: By using Celery, the application can handle long-running tasks, like sending emails, in the background without blocking the main application thread.
+- Efficient Resource Utilization: Redis is used as a message broker and result backend, providing fast and reliable messaging between the application and Celery worker.
+- Containerization: Docker ensures that the environment is consistent across different machines, making it easier to develop, test, and deploy the application.
+
+     
