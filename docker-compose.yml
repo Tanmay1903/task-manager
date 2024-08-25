@@ -28,3 +28,15 @@ services:
     container_name: redis
     ports:
       - "6379:6379"
+
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: test_container
+    depends_on:
+      - web
+      - redis
+    environment:
+      - DATABASE_URL=sqlite:///./test.db
+    command: ["pytest", "--disable-warnings", "-v"]
