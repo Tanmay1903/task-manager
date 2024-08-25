@@ -28,7 +28,7 @@ The application uses the following environment variables:
 - **SENDGRID_FROM_EMAIL**: The email address from which emails will be sent.
 - **SENDGRID_TO_EMAIL**: The recipient email address.
 
-These variables are set directly in the `docker-compose.yml` file.
+These variables are set directly in the `.env` file.
 
 ## Getting Started
 
