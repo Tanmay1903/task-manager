@@ -67,4 +67,99 @@ docker-compose down
 To ensure the quality and reliability of the application, I have written and run tests using a testing framework like pytest.
 
 #### Setting Up Pytest
-- 1. Install pytest: Ensure pytest is installed in your environment.
+- Install pytest: Ensure pytest is installed in your environment.
+- Write Tests: Created a tests/ directory in the root of the project, and added test files to it. For example, tests/test_main.py includes tests for the FastAPI endpoints.
+- Run Tests:
+```bash
+pytest
+```
+
+### 2. Core Functionalities
+The application offers the following core functionalities:
+
+1. Creating Tasks:
+   - Endpoint: `POST /tasks/`
+   - Functionality: Allows users to create a new task by providing a title and description.
+   - Example Request:
+     ```bash
+      curl -X POST "http://localhost:8081/tasks/" -H "Content-Type: application/json" -d '{"title": "New Task", "description": "This is a new task"}'
+     ```
+   - Example Response:
+     ```
+      {
+          "id": 1,
+          "title": "New Task",
+          "description": "This is a new task"
+      }
+     ```
+2. Listing Tasks:
+   - Endpoint: `GET /tasks/`
+   - Functionality: Lists all existing tasks
+   - Example Request:
+     ```bash
+      curl -X GET "http://localhost:8081/tasks/"
+     ```
+   - Example Response:
+     ```
+      [
+        {
+            "id": 1,
+            "title": "New Task",
+            "description": "This is a new task"
+        }
+      ]
+     ```
+3. Retrieving a Specific Task:
+   - Endpoint: `GET /tasks/{task_id}`
+   - Functionality: Retrieves a specific task by its ID.
+   - Example Request:
+     ```bash
+      curl -X GET "http://localhost:8081/tasks/1"
+     ```
+   - Example Response:
+     ```
+      {
+          "id": 1,
+          "title": "New Task",
+          "description": "This is a new task"
+      }
+     ```
+4. Updating a Task:
+   - Endpoint: `PUT /tasks/{task_id}`
+   - Functionality: Updates an existing task's title and description.
+   - Example Request:
+     ```bash
+      curl -X PUT "http://localhost:8081/tasks/1" -H "Content-Type: application/json" -d '{"title": "Updated Task", "description": "This is an updated task"}'
+     ```
+   - Example Response:
+     ```
+      {
+          "id": 1,
+          "title": "Updated Task",
+          "description": "This is an updated task"
+      }
+     ```
+5. Deleting a Task:
+   - Endpoint: `DELETE /tasks/{task_id}`
+   - Functionality: Deletes a task by its ID.
+   - Example Request:
+     ```bash
+      curl -X DELETE "http://localhost:8081/tasks/1"
+     ```
+   - Example Response:
+     ```
+      {
+          "id": 1,
+          "title": "Updated Task",
+          "description": "This is an updated task"
+      }
+     ```
+
+### 3. Background Tasks with Celery and Email Notifications
+The application uses Celery for handling background tasks, such as sending email notifications when a new task is created.
+
+#### How It Works:
+1. Task Creation and Notification:
+  - When a new task is created via the POST /tasks/ endpoint, an asynchronous Celery task (send_email_task) is triggered to send an email notification.
+2. Celery Task Implementation:
+  - The send_email_task function is defined in app.email and is decorated with @celery_app.task, making it a Celery task. This task is responsible for sending an email using the SendGrid API.
