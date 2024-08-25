@@ -67,4 +67,4 @@ docker-compose down
 To ensure the quality and reliability of the application, I have written and run tests using a testing framework like pytest.
 
 #### Setting Up Pytest
-- Install pytest: Ensure pytest is installed in your environment.
+- 1. Install pytest: Ensure pytest is installed in your environment.
