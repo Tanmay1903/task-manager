@@ -69,9 +69,9 @@ To ensure the quality and reliability of the application, I have written and run
 #### Setting Up Pytest
 - Install pytest: Ensure pytest is installed in your environment.
 - Write Tests: Created a tests/ directory in the root of the project, and added test files to it. For example, tests/test_main.py includes tests for the FastAPI endpoints.
-- Run Tests:
+- Run the Tests Inside the Docker Container:
 ```bash
-pytest
+docker-compose up --build test
 ```
 
 ### 2. Core Functionalities
