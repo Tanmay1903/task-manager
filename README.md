@@ -155,7 +155,7 @@ The application offers the following core functionalities:
       }
      ```
 
-You can find Swagger documentation of API's on the link `http://127.0.0.1:8081/docs#/`, after running the application.
+You can also find Swagger documentation of API's on the link `http://127.0.0.1:8081/docs#/`, after running the application.
 
 ### 3. Background Tasks with Celery and Email Notifications
 The application uses Celery for handling background tasks, such as sending email notifications when a new task is created.
